@@ -1,0 +1,16 @@
+{
+  "name": "Abhijit Borade",
+  "short_name": "Abhijit",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#111418",
+  "theme_color": "#111418",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

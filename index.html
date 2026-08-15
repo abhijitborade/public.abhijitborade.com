@@ -1,18 +1,789 @@
 <!doctype html>
-<title>Temporarily Not Available</title>
-<style>
-  body { text-align: center; padding: 150px; }
-  h1 { font-size: 50px; }
-  body { font: 20px Helvetica, sans-serif; color: #333; }
-  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-  a { color: #dc8100; text-decoration: none; }
-  a:hover { color: #333; text-decoration: none; }
-</style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111418" />
+    <meta
+      name="description"
+      content="Abhijit Borade is a technology leader focused on technical direction, evolving web systems, and effective engineering teams."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://abhijitborade.com/" />
 
-<article>
-    <h1>Site Temporarily Unavailable!</h1>
-    <div>
-        <p>My site is temporarily offline. In the meantime, feel free to reach me at <a href="mailto:me@abhijitborade.com">me@abhijitborade.com</a>.</p>
-        <p>&mdash; Abhijit Borade</p>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://abhijitborade.com/" />
+    <meta property="og:title" content="Abhijit Borade" />
+    <meta
+      property="og:description"
+      content="Abhijit Borade is a technology leader focused on technical direction, evolving web systems, and effective engineering teams."
+    />
+    <meta property="og:image" content="https://abhijitborade.com/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abhijit Borade" />
+    <meta
+      name="twitter:description"
+      content="Abhijit Borade is a technology leader focused on technical direction, evolving web systems, and effective engineering teams."
+    />
+    <meta name="twitter:image" content="https://abhijitborade.com/og-image.svg" />
+
+    <title>Abhijit Borade</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="mask-icon" href="/favicon.svg" color="#111418" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <style>
+      :root {
+        color-scheme: dark light;
+        --bg: #f4f5f3;
+        --bg-soft: #e7eaeb;
+        --ink: #111418;
+        --ink-soft: #5d646d;
+        --hero: #111418;
+        --hero-soft: rgba(255, 255, 255, 0.72);
+        --line: rgba(17, 20, 24, 0.12);
+        --accent: #8a6b4d;
+        --accent-soft: rgba(138, 107, 77, 0.16);
+        --max: 1520px;
+        --sidebar: clamp(15rem, 20vw, 19rem);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--accent-soft);
+      }
+
+      a {
+        color: inherit;
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.16em;
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .skip-link {
+        position: absolute;
+        z-index: 20;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        background: #fff;
+        transform: translateY(-160%);
+        transition: transform 160ms ease;
+        box-shadow: 0 18px 40px rgba(17, 20, 24, 0.12);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site {
+        display: grid;
+        grid-template-columns: var(--sidebar) minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .rail {
+        position: sticky;
+        top: 0;
+        align-self: start;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(1.2rem, 2.4vw, 2rem);
+        border-right: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.42);
+      }
+
+      .brand {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .mark {
+        width: 3rem;
+        height: 3rem;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--ink);
+        font-weight: 600;
+        letter-spacing: -0.06em;
+      }
+
+      .mark img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .brand p {
+        margin: 0;
+        max-width: 22ch;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+
+      .rail-nav {
+        display: grid;
+        gap: 0.35rem;
+        margin: 2rem 0;
+      }
+
+      .rail-nav a {
+        display: inline-flex;
+        width: fit-content;
+        color: var(--ink-soft);
+        text-decoration: none;
+        padding: 0.1rem 0;
+      }
+
+      .rail-nav a[aria-current="true"] {
+        color: var(--ink);
+        font-weight: 700;
+        text-decoration: underline;
+        text-decoration-thickness: 0.12em;
+        text-underline-offset: 0.18em;
+      }
+
+      .rail-meta {
+        display: grid;
+        gap: 0.8rem;
+        color: var(--ink-soft);
+        font-size: 0.94rem;
+      }
+
+      .rail-meta strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .content {
+        min-width: 0;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+        align-items: center;
+        gap: clamp(1.5rem, 4vw, 3.5rem);
+        padding: clamp(1.25rem, 2.5vw, 2rem);
+        background: var(--hero);
+        color: #f4f1eb;
+        overflow: clip;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.03) 100%),
+          radial-gradient(
+            circle at 18% 20%,
+            rgba(138, 107, 77, 0.16),
+            transparent 28%
+          );
+        pointer-events: none;
+      }
+
+      .hero-copy,
+      .hero-aside {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-kicker {
+        margin: 0 0 1.2rem;
+        color: var(--hero-soft);
+        letter-spacing: 0.01em;
+      }
+
+      .hero h2 {
+        margin: 0;
+        max-width: 11ch;
+        font-size: clamp(3.4rem, 8.8vw, 8rem);
+        line-height: 0.92;
+        letter-spacing: -0.075em;
+      }
+
+      .hero-role {
+        display: block;
+        margin-top: 0.35em;
+        font-size: 0.48em;
+        line-height: 1.05;
+        letter-spacing: -0.045em;
+      }
+
+      .hero .lede {
+        margin: 1.6rem 0 0;
+        max-width: 33ch;
+        font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+        line-height: 1.58;
+        color: rgba(244, 241, 235, 0.76);
+      }
+
+      .hero-aside {
+        align-self: center;
+        display: grid;
+        gap: 1rem;
+        padding-bottom: 0.6rem;
+      }
+
+      .signal {
+        display: grid;
+        gap: 0.6rem;
+        padding-left: 1rem;
+        border-left: 1px solid rgba(244, 241, 235, 0.16);
+      }
+
+      .signal span {
+        color: rgba(244, 241, 235, 0.7);
+      }
+
+      .signal strong {
+        font-weight: 550;
+        color: #f7f4ef;
+      }
+
+      .section {
+        padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 2.5vw, 2rem);
+      }
+
+      .section-title {
+        margin: 0 0 1.5rem;
+        font-size: clamp(1.6rem, 3vw, 2.5rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+      }
+
+      .section-copy {
+        max-width: 54rem;
+        color: var(--ink);
+        font-size: clamp(1.06rem, 1.45vw, 1.2rem);
+        line-height: 1.75;
+      }
+
+      .section-copy p {
+        margin: 0 0 1rem;
+      }
+
+      .section-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .wide-statement {
+        max-width: 44rem;
+        font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+        line-height: 1.45;
+        letter-spacing: -0.03em;
+      }
+
+      .build-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: clamp(1rem, 2vw, 1.8rem);
+      }
+
+      .build-list li {
+        display: grid;
+        gap: 0.65rem;
+        padding: 0.5rem 0 0.2rem;
+      }
+
+      .build-list h3 {
+        margin: 0;
+        font-size: clamp(1.25rem, 2vw, 1.8rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .build-list p {
+        margin: 0;
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+
+      .note-stream {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        max-width: 56rem;
+      }
+
+      .note-stream p {
+        margin: 0;
+        font-size: clamp(1.06rem, 1.6vw, 1.18rem);
+        line-height: 1.72;
+      }
+
+      .note-stream strong {
+        display: inline-block;
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .personal-list {
+        list-style: none;
+        display: grid;
+        gap: 0;
+        max-width: 60rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .personal-intro {
+        margin-bottom: 2rem;
+      }
+
+      .personal-list li {
+        display: grid;
+        grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+        gap: clamp(1.5rem, 4vw, 4rem);
+        align-items: start;
+        padding: 1.25rem 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .personal-list li:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .personal-list h3 {
+        margin: 0;
+        font-size: clamp(1.25rem, 2vw, 1.8rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .personal-list p {
+        max-width: 32rem;
+        margin: 0;
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+
+      .footer {
+        padding: 0 1.25rem 2rem;
+        color: var(--ink-soft);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-email {
+        width: fit-content;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+      @media (max-width: 1080px) {
+        .site {
+          grid-template-columns: 1fr;
+        }
+
+        .rail {
+          position: relative;
+          min-height: auto;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          background: rgba(255, 255, 255, 0.62);
+        }
+
+        .rail-nav,
+        .rail-meta {
+          display: none;
+        }
+
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+        }
+
+        .brand > div:last-child {
+          display: grid;
+          gap: 0.2rem;
+        }
+
+        .brand p {
+          max-width: none;
+          font-size: 0.92rem;
+        }
+
+        .hero {
+          min-height: auto;
+          grid-template-columns: 1fr;
+          padding-top: 5rem;
+          padding-bottom: 4rem;
+        }
+
+        .hero-aside {
+          max-width: 34rem;
+        }
+
+        .mobile-nav {
+          display: flex;
+          gap: 1rem;
+          overflow-x: auto;
+          padding: 0.9rem clamp(1.25rem, 2.5vw, 2rem);
+          border-bottom: 1px solid var(--line);
+          scrollbar-width: none;
+        }
+
+        .mobile-nav::-webkit-scrollbar {
+          display: none;
+        }
+
+        .mobile-nav a {
+          flex: 0 0 auto;
+          color: var(--ink-soft);
+          font-size: 0.92rem;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus-visible {
+          color: var(--ink);
+        }
+
+        .build-list li {
+          grid-template-columns: 1fr;
+        }
+
+      }
+
+      @media (min-width: 1081px) and (max-height: 720px) {
+        .hero {
+          min-height: auto;
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .rail {
+          padding: 1rem;
+        }
+
+        .rail-nav {
+          gap: 0.2rem;
+          margin: 1.2rem 0;
+        }
+
+        .hero,
+        .section,
+        .footer {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .hero h2 {
+          max-width: 12ch;
+        }
+
+        .hero .lede {
+          max-width: 28rem;
+        }
+
+        .personal-list {
+          max-width: 34rem;
+        }
+
+        .personal-list li {
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="site">
+      <aside class="rail" aria-label="Site navigation">
+        <div class="brand">
+          <div class="mark">
+            <img
+              src="https://0.gravatar.com/avatar/f70712e91b14b593efad03c52b49dd6a33c146f2ef4f44f1e1f4dfb6eb52dbf3?s=256"
+              alt="Abhijit Borade"
+              width="256"
+              height="256"
+            />
+          </div>
+          <div>
+            <h1>Abhijit Borade</h1>
+            <p>Technology leadership, software, and practical ideas.</p>
+          </div>
+        </div>
+
+        <nav class="rail-nav">
+          <a href="#hero">Home</a>
+          <a href="#background">Background</a>
+          <a href="#build">How I work</a>
+          <a href="#notes">Writing</a>
+          <a href="#interests">Beyond work</a>
+        </nav>
+
+        <div class="rail-meta">
+          <div><strong>Role</strong><br />Director of Technology at <a href="https://www.angularminds.com/" target="_blank" rel="noreferrer">Angular Minds</a></div>
+          <div><strong>Based in</strong><br />Pune, India</div>
+          <div><strong>Working across</strong><br />Engineering, Architecture, Products, Teams, AI</div>
+        </div>
+      </aside>
+
+      <main class="content" id="content">
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="hero-kicker">Engineering leadership for products that need to last.</p>
+            <h2 id="hero-title">
+              I'm Abhijit Borade.
+              <span class="hero-role">I lead technology at Angular Minds.</span>
+            </h2>
+            <p class="lede">
+              I help teams make sound technical decisions, build reliable web products,
+              and grow systems without losing clarity. My work sits at the intersection
+              of engineering, architecture, technical direction, and leadership.
+            </p>
+          </div>
+
+          <div class="hero-aside" aria-label="Current signals">
+            <div class="signal">
+              <span><strong>What I do</strong></span>
+              <span>I work on engineering direction, architecture, and the technical choices that shape products and teams.</span>
+            </div>
+            <div class="signal">
+              <span><strong>Now</strong></span>
+              <span>Exploring AI agents, multimodal systems, generative products, and new interfaces for software.</span>
+            </div>
+          </div>
+        </section>
+
+        <nav class="mobile-nav" aria-label="Mobile section navigation">
+          <a href="#background">Background</a>
+          <a href="#build">How I work</a>
+          <a href="#notes">Writing</a>
+          <a href="#interests">Beyond work</a>
+        </nav>
+
+        <section class="section" id="background" aria-labelledby="background-title">
+          <h2 class="section-title" id="background-title">Background</h2>
+          <div class="section-copy wide-statement">
+            <p>
+              I've spent over a decade in software engineering, moving from software
+              development and senior engineering into technology leadership. Today, I
+              work mostly with JavaScript, TypeScript, and web platforms, while staying
+              focused on how systems age, how teams make decisions, and how architecture
+              remains useful after the first version ships.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="build" aria-labelledby="build-title">
+          <h2 class="section-title" id="build-title">How I work</h2>
+          <ul class="build-list" aria-label="Areas of work">
+            <li>
+              <h3>Technical direction</h3>
+              <p>
+                I help teams make clear decisions across architecture, delivery, and
+                product constraints.
+              </p>
+            </li>
+            <li>
+              <h3>Systems designed to evolve</h3>
+              <p>
+                I care about building systems that stay understandable and adaptable as
+                products and teams grow.
+              </p>
+            </li>
+            <li>
+              <h3>Teams that work well</h3>
+              <p>
+                Good engineering needs more than good code. I focus on clarity, context,
+                communication, and giving teams room to make good decisions.
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" id="notes" aria-labelledby="notes-title">
+          <h2 class="section-title" id="notes-title">Writing</h2>
+          <div class="section-copy wide-statement">
+            <p>
+              I'm interested in writing about engineering judgment, architecture and
+              trade-offs, technical leadership, and the broader impact of AI on software
+              and technology. Longer notes will live on my
+              <a href="https://blog.abhijitborade.com/" target="_blank" rel="noreferrer">blog</a>.
+            </p>
+          </div>
+
+          <div class="note-stream" aria-label="Writing themes">
+            <p>
+              <strong>Engineering judgment.</strong> The decisions I think about when the
+              code has to live longer than the conversation.
+            </p>
+            <p>
+              <strong>Architecture and trade-offs.</strong> How systems stay useful while
+              still leaving room to evolve.
+            </p>
+            <p>
+              <strong>Leadership.</strong> Direction, context, and the work of helping
+              technical teams stay clear and effective.
+            </p>
+            <p>
+              <strong>AI and technology.</strong> How AI is changing products, software,
+              teams, and the decisions technology leaders need to make.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="interests" aria-labelledby="interests-title">
+          <h2 class="section-title" id="interests-title">Beyond work</h2>
+          <div class="section-copy personal-intro">
+            <p>The things I do away from work tend to have one thing in common: they give me time to explore at my own pace.</p>
+          </div>
+          <ul class="personal-list" aria-label="Personal interests">
+            <li>
+              <h3>Gaming</h3>
+              <p>Adventure and RPG games, Minecraft, and Xbox. Minecraft has a way of turning a quick session into an entire evening.</p>
+            </li>
+            <li>
+              <h3>Music</h3>
+              <p>I have a soft spot for songs that take me back to a particular time. My playlists are organized less by genre and more by the years and memories attached to them.</p>
+            </li>
+            <li>
+              <h3>On the road</h3>
+              <p>Whether it's a solo motorcycle ride or a longer trip by car, I like an open road and leaving room for the plan to change.</p>
+            </li>
+            <li>
+              <h3>Curiosity</h3>
+              <p>Technology, gadgets, software, AI, and the occasional rabbit hole that starts with, "I wonder how this works."</p>
+            </li>
+          </ul>
+        </section>
+
+        <footer class="footer">
+          <div class="footer-inner">
+            <span>&copy; <span id="year">2026</span> Abhijit Borade</span>
+            <a class="footer-email" href="mailto:me@abhijitborade.com">me@abhijitborade.com</a>
+            <nav class="footer-links" aria-label="Footer links">
+              <a href="https://blog.abhijitborade.com/" target="_blank" rel="noreferrer">Blog</a>
+              <a href="https://www.linkedin.com/in/abhijitborade/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://www.instagram.com/abhijit_borade/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://x.com/abhijitborade" target="_blank" rel="noreferrer">X</a>
+            </nav>
+            <a href="#hero">Back to top</a>
+          </div>
+        </footer>
+      </main>
     </div>
-</article>
+
+    <script>
+      (() => {
+        const year = document.getElementById("year");
+        if (year) year.textContent = String(new Date().getFullYear());
+
+        const links = Array.from(document.querySelectorAll(".rail-nav a"));
+        const sections = links
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        if (!("IntersectionObserver" in window) || !sections.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (!visible) return;
+
+            links.forEach((link) => {
+              const active = link.getAttribute("href") === `#${visible.target.id}`;
+              if (active) link.setAttribute("aria-current", "true");
+              else link.removeAttribute("aria-current");
+            });
+          },
+          { rootMargin: "-22% 0px -60% 0px", threshold: [0.12, 0.2, 0.35, 0.55] }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      })();
+    </script>
+  </body>
+</html>
