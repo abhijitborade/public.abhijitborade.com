@@ -1,0 +1,22 @@
+# Abhijit Borade
+
+> Personal website of Abhijit Borade, Director of Technology at Angular Minds.
+
+## About
+
+Abhijit Borade is a technology leader based in Pune, India. His work spans engineering, architecture, products, teams, AI, and emerging technology.
+
+He has over a decade of experience in software engineering and technology leadership. He is interested in engineering judgment, technical trade-offs, leadership, AI, software, and technology.
+
+## Personal interests
+
+Beyond work, Abhijit is interested in gaming, music, solo motorcycle rides, road trips, cars, travel, gadgets, software, and technical rabbit holes.
+
+## Links
+
+- Website: https://abhijitborade.com/
+- Blog: https://blog.abhijitborade.com/
+- Angular Minds: https://www.angularminds.com/
+- LinkedIn: https://www.linkedin.com/in/abhijitborade/
+- Instagram: https://www.instagram.com/abhijit_borade/
+- X: https://x.com/abhijitborade

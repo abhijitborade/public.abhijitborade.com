@@ -1,9 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#111418" />
+    <meta id="theme-color" name="theme-color" content="#f4f5f3" />
+    <meta name="author" content="Abhijit Borade" />
+    <meta name="geo.region" content="IN-MH" />
+    <meta name="geo.placename" content="Pune" />
     <meta
       name="description"
       content="Abhijit Borade is a technology leader focused on technical direction, evolving web systems, and effective engineering teams."
@@ -12,29 +15,66 @@
     <link rel="canonical" href="https://abhijitborade.com/" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Abhijit Borade" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:url" content="https://abhijitborade.com/" />
-    <meta property="og:title" content="Abhijit Borade" />
+    <meta property="og:title" content="Abhijit Borade - Technology Leader" />
     <meta
       property="og:description"
       content="Abhijit Borade is a technology leader focused on technical direction, evolving web systems, and effective engineering teams."
     />
     <meta property="og:image" content="https://abhijitborade.com/og-image.svg" />
+    <meta property="og:image:alt" content="Abhijit Borade - personal website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Abhijit Borade" />
+    <meta name="twitter:title" content="Abhijit Borade - Technology Leader" />
     <meta
       name="twitter:description"
       content="Abhijit Borade is a technology leader focused on technical direction, evolving web systems, and effective engineering teams."
     />
     <meta name="twitter:image" content="https://abhijitborade.com/og-image.svg" />
+    <meta name="twitter:image:alt" content="Abhijit Borade - personal website" />
 
-    <title>Abhijit Borade</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abhijit Borade",
+        "url": "https://abhijitborade.com/",
+        "jobTitle": "Director of Technology",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Angular Minds",
+          "url": "https://www.angularminds.com/"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": [
+          "Software engineering",
+          "Technology leadership",
+          "Software architecture",
+          "Artificial intelligence"
+        ],
+        "sameAs": [
+          "https://blog.abhijitborade.com/",
+          "https://www.linkedin.com/in/abhijitborade/",
+          "https://www.instagram.com/abhijit_borade/",
+          "https://x.com/abhijitborade"
+        ]
+      }
+    </script>
+
+    <title>Abhijit Borade - Technology Leader</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="mask-icon" href="/favicon.svg" color="#111418" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <style>
       :root {
-        color-scheme: dark light;
+        color-scheme: light;
         --bg: #f4f5f3;
         --bg-soft: #e7eaeb;
         --ink: #111418;
@@ -44,8 +84,46 @@
         --line: rgba(17, 20, 24, 0.12);
         --accent: #8a6b4d;
         --accent-soft: rgba(138, 107, 77, 0.16);
+        --rail-bg: rgba(255, 255, 255, 0.42);
+        --rail-mobile-bg: rgba(255, 255, 255, 0.62);
+        --mark-bg: rgba(255, 255, 255, 0.82);
+        --skip-bg: #fff;
         --max: 1520px;
         --sidebar: clamp(15rem, 20vw, 19rem);
+      }
+
+      :root[data-theme="light"] {
+        color-scheme: light;
+        --bg: #f4f5f3;
+        --bg-soft: #e7eaeb;
+        --ink: #111418;
+        --ink-soft: #5d646d;
+        --hero: #111418;
+        --hero-soft: rgba(255, 255, 255, 0.72);
+        --line: rgba(17, 20, 24, 0.12);
+        --accent: #8a6b4d;
+        --accent-soft: rgba(138, 107, 77, 0.16);
+        --rail-bg: rgba(255, 255, 255, 0.42);
+        --rail-mobile-bg: rgba(255, 255, 255, 0.62);
+        --mark-bg: rgba(255, 255, 255, 0.82);
+        --skip-bg: #fff;
+      }
+
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #181d22;
+        --bg-soft: #242a30;
+        --ink: #f4f1eb;
+        --ink-soft: #a9b0b6;
+        --hero: #080a0d;
+        --hero-soft: rgba(244, 241, 235, 0.72);
+        --line: rgba(244, 241, 235, 0.14);
+        --accent: #c39a70;
+        --accent-soft: rgba(195, 154, 112, 0.2);
+        --rail-bg: rgba(255, 255, 255, 0.03);
+        --rail-mobile-bg: rgba(255, 255, 255, 0.05);
+        --mark-bg: rgba(255, 255, 255, 0.08);
+        --skip-bg: #242a30;
       }
 
       * {
@@ -109,10 +187,49 @@
         left: 1rem;
         padding: 0.7rem 1rem;
         border-radius: 999px;
-        background: #fff;
+        background: var(--skip-bg);
         transform: translateY(-160%);
         transition: transform 160ms ease;
         box-shadow: 0 18px 40px rgba(17, 20, 24, 0.12);
+      }
+
+      .theme-toggle {
+        display: grid;
+        width: 2.5rem;
+        height: 2.5rem;
+        place-items: center;
+        padding: 0;
+        margin-top: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--bg);
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.9rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .theme-toggle svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .theme-icon-moon {
+        display: none;
+      }
+
+      .theme-toggle[data-theme="dark"] .theme-icon-sun {
+        display: none;
+      }
+
+      .theme-toggle[data-theme="dark"] .theme-icon-moon {
+        display: block;
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--accent);
+        color: var(--accent);
       }
 
       .skip-link:focus {
@@ -135,7 +252,7 @@
         justify-content: space-between;
         padding: clamp(1.2rem, 2.4vw, 2rem);
         border-right: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.42);
+        background: var(--rail-bg);
       }
 
       .brand {
@@ -143,15 +260,28 @@
         gap: 0.9rem;
       }
 
+      .brand-link {
+        display: grid;
+        gap: 0.9rem;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand-link:hover {
+        color: var(--ink);
+      }
+
       .mark {
-        width: 3rem;
-        height: 3rem;
+        width: calc(3.25rem + 4px);
+        height: calc(3.25rem + 4px);
         display: grid;
         place-items: center;
         overflow: hidden;
         border-radius: 50%;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.82);
+        padding: 2px;
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+        background: var(--mark-bg);
         color: var(--ink);
         font-weight: 600;
         letter-spacing: -0.06em;
@@ -162,6 +292,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 50%;
       }
 
       .brand h1 {
@@ -204,12 +335,18 @@
         display: grid;
         gap: 0.8rem;
         color: var(--ink-soft);
-        font-size: 0.94rem;
+        font-size: 1rem;
+        line-height: 1.5;
       }
 
       .rail-meta strong {
         color: var(--ink);
         font-weight: 600;
+      }
+
+      .rail-bottom {
+        display: grid;
+        gap: 1rem;
       }
 
       .content {
@@ -220,9 +357,8 @@
         position: relative;
         min-height: 100vh;
         display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+        grid-template-columns: 1fr;
         align-items: center;
-        gap: clamp(1.5rem, 4vw, 3.5rem);
         padding: clamp(1.25rem, 2.5vw, 2rem);
         background: var(--hero);
         color: #f4f1eb;
@@ -243,10 +379,14 @@
         pointer-events: none;
       }
 
-      .hero-copy,
-      .hero-aside {
+      .hero-copy {
         position: relative;
         z-index: 1;
+      }
+
+      .hero-copy {
+        width: 100%;
+        max-width: 72rem;
       }
 
       .hero-kicker {
@@ -274,31 +414,24 @@
       .hero .lede {
         margin: 1.6rem 0 0;
         max-width: 33ch;
-        font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+        font-size: clamp(1.15rem, 1.8vw, 1.4rem);
         line-height: 1.58;
         color: rgba(244, 241, 235, 0.76);
       }
 
-      .hero-aside {
-        align-self: center;
-        display: grid;
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
-        padding-bottom: 0.6rem;
+        margin-top: 1.5rem;
       }
 
-      .signal {
-        display: grid;
-        gap: 0.6rem;
-        padding-left: 1rem;
-        border-left: 1px solid rgba(244, 241, 235, 0.16);
+      .hero-links a {
+        color: rgba(244, 241, 235, 0.72);
+        font-size: 1rem;
       }
 
-      .signal span {
-        color: rgba(244, 241, 235, 0.7);
-      }
-
-      .signal strong {
-        font-weight: 550;
+      .hero-links a:hover {
         color: #f7f4ef;
       }
 
@@ -359,6 +492,7 @@
       .build-list p {
         margin: 0;
         color: var(--ink-soft);
+        font-size: clamp(1.1rem, 1.25vw, 1.2rem);
         line-height: 1.7;
       }
 
@@ -371,7 +505,7 @@
 
       .note-stream p {
         margin: 0;
-        font-size: clamp(1.06rem, 1.6vw, 1.18rem);
+        font-size: clamp(1.1rem, 1.25vw, 1.2rem);
         line-height: 1.72;
       }
 
@@ -418,6 +552,7 @@
         max-width: 32rem;
         margin: 0;
         color: var(--ink-soft);
+        font-size: clamp(1.1rem, 1.25vw, 1.2rem);
         line-height: 1.7;
       }
 
@@ -456,8 +591,9 @@
           position: relative;
           min-height: auto;
           border-right: 0;
-          border-bottom: 1px solid var(--line);
-          background: rgba(255, 255, 255, 0.62);
+          border-bottom: 0;
+          background: #111418;
+          color: #f4f1eb;
         }
 
         .rail-nav,
@@ -465,31 +601,41 @@
           display: none;
         }
 
-        .brand {
+        .theme-toggle {
+          display: none;
+        }
+
+        .brand-link {
           display: flex;
           align-items: center;
           gap: 0.8rem;
         }
 
-        .brand > div:last-child {
+        .mark {
+          width: calc(3.75rem + 4px);
+          height: calc(3.75rem + 4px);
+          flex: 0 0 calc(3.75rem + 4px);
+        }
+
+        .brand-link > div:last-child {
           display: grid;
           gap: 0.2rem;
         }
 
-        .brand p {
+        .brand-link p {
           max-width: none;
-          font-size: 0.92rem;
+          color: rgba(244, 241, 235, 0.72);
+          font-size: 1rem;
+        }
+
+        .brand-link:hover {
+          color: #f4f1eb;
         }
 
         .hero {
           min-height: auto;
-          grid-template-columns: 1fr;
           padding-top: 5rem;
           padding-bottom: 4rem;
-        }
-
-        .hero-aside {
-          max-width: 34rem;
         }
 
         .mobile-nav {
@@ -508,7 +654,7 @@
         .mobile-nav a {
           flex: 0 0 auto;
           color: var(--ink-soft);
-          font-size: 0.92rem;
+          font-size: 1rem;
           text-decoration: none;
           white-space: nowrap;
         }
@@ -570,6 +716,7 @@
           flex-direction: column;
         }
       }
+
     </style>
   </head>
   <body>
@@ -578,18 +725,20 @@
     <div class="site">
       <aside class="rail" aria-label="Site navigation">
         <div class="brand">
-          <div class="mark">
-            <img
-              src="https://0.gravatar.com/avatar/f70712e91b14b593efad03c52b49dd6a33c146f2ef4f44f1e1f4dfb6eb52dbf3?s=256"
-              alt="Abhijit Borade"
-              width="256"
-              height="256"
-            />
-          </div>
-          <div>
-            <h1>Abhijit Borade</h1>
-            <p>Technology leadership, software, and practical ideas.</p>
-          </div>
+          <a class="brand-link" href="/">
+            <div class="mark">
+              <img
+                src="https://0.gravatar.com/avatar/f70712e91b14b593efad03c52b49dd6a33c146f2ef4f44f1e1f4dfb6eb52dbf3?s=256"
+                alt="Abhijit Borade"
+                width="256"
+                height="256"
+              />
+            </div>
+            <div>
+              <h1>Abhijit Borade</h1>
+              <p>Technology leadership, software, and practical ideas.</p>
+            </div>
+          </a>
         </div>
 
         <nav class="rail-nav">
@@ -600,10 +749,53 @@
           <a href="#interests">Beyond work</a>
         </nav>
 
-        <div class="rail-meta">
-          <div><strong>Role</strong><br />Director of Technology at <a href="https://www.angularminds.com/" target="_blank" rel="noreferrer">Angular Minds</a></div>
-          <div><strong>Based in</strong><br />Pune, India</div>
-          <div><strong>Working across</strong><br />Engineering, Architecture, Products, Teams, AI</div>
+        <div class="rail-bottom">
+          <div class="rail-meta">
+            <div><strong>Role</strong><br />Director of Technology at <a href="https://www.angularminds.com/" target="_blank" rel="noreferrer">Angular Minds</a></div>
+            <div><strong>Based in</strong><br />Pune, India</div>
+            <div><strong>Working across</strong><br />Engineering, Architecture, Products, Teams, AI</div>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="theme-icon theme-icon-sun"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg
+            class="theme-icon theme-icon-moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+          </svg>
+          </button>
         </div>
       </aside>
 
@@ -620,17 +812,12 @@
               and grow systems without losing clarity. My work sits at the intersection
               of engineering, architecture, technical direction, and leadership.
             </p>
-          </div>
-
-          <div class="hero-aside" aria-label="Current signals">
-            <div class="signal">
-              <span><strong>What I do</strong></span>
-              <span>I work on engineering direction, architecture, and the technical choices that shape products and teams.</span>
-            </div>
-            <div class="signal">
-              <span><strong>Now</strong></span>
-              <span>Exploring AI agents, multimodal systems, generative products, and new interfaces for software.</span>
-            </div>
+            <nav class="hero-links" aria-label="Social links">
+              <a href="https://blog.abhijitborade.com/" target="_blank" rel="noreferrer">Blog</a>
+              <a href="https://www.linkedin.com/in/abhijitborade/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://www.instagram.com/abhijit_borade/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://x.com/abhijitborade" target="_blank" rel="noreferrer">X</a>
+            </nav>
           </div>
         </section>
 
@@ -755,6 +942,51 @@
 
     <script>
       (() => {
+        const root = document.documentElement;
+        const themeToggle = document.querySelector(".theme-toggle");
+        const storedTheme = (() => {
+          try {
+            return localStorage.getItem("theme");
+          } catch {
+            return null;
+          }
+        })();
+
+        if (storedTheme === "light" || storedTheme === "dark") {
+          root.dataset.theme = storedTheme;
+        }
+
+        const updateThemeToggle = () => {
+          const activeTheme = root.dataset.theme || "light";
+          const nextTheme = activeTheme === "dark" ? "light" : "dark";
+
+          if (!themeToggle) return;
+          themeToggle.dataset.theme = activeTheme;
+          themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+          themeToggle.setAttribute("aria-pressed", String(activeTheme === "dark"));
+          const themeColor = document.getElementById("theme-color");
+          if (themeColor) {
+            themeColor.content = activeTheme === "dark" ? "#181d22" : "#f4f5f3";
+          }
+        };
+
+        if (themeToggle) {
+          themeToggle.addEventListener("click", () => {
+            const activeTheme = root.dataset.theme || "light";
+            const nextTheme = activeTheme === "dark" ? "light" : "dark";
+
+            root.dataset.theme = nextTheme;
+            try {
+              localStorage.setItem("theme", nextTheme);
+            } catch {
+              // The theme still works when storage is unavailable.
+            }
+            updateThemeToggle();
+          });
+        }
+
+        updateThemeToggle();
+
         const year = document.getElementById("year");
         if (year) year.textContent = String(new Date().getFullYear());
 
